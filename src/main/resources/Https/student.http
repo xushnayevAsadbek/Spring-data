@@ -1,13 +1,13 @@
-### GET request to example server
-GET https://examples.http-client.intellij.net/get
-    ?generated-in=IntelliJ IDEA
-
 ### Student create
 
 POST localhost:8080/student/create
 Content-Type: application/json
 
 {
-  "name": "alish32" ,
-  "surname": "Mazgiyev1"
+  "name": "Tosmat" ,
+  "surname": "Qoziyev"
 }
+
+### Student get All
+
+GET localhost:8080/student
