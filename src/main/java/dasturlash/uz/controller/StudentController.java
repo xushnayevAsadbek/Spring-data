@@ -24,5 +24,9 @@ public class StudentController {
     public ResponseEntity<List<StudentDTO>> getAll() {
         return ResponseEntity.ok(studentService.getAll());
     }
+    @GetMapping("/{id}")
+    public ResponseEntity<StudentDTO> byId(@PathVariable("id") Integer id) {
+        return ResponseEntity.ok(studentService.getById(id));
+    }
 
 }

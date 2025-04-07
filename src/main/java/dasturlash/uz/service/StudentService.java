@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class StudentService {
@@ -26,12 +27,25 @@ public class StudentService {
        Iterable<StudentEntity> itrabel = studentRepository.findAll();
        List<StudentDTO> list = new LinkedList<>();
        for (StudentEntity entity : itrabel) {
-           StudentDTO dto = new StudentDTO();
-           dto.setId(entity.getId());
-           dto.setName(entity.getName());
-           dto.setSurname(entity.getSurname());
-           list.add(dto);
+
+           list.add(toDTO(entity));
        }
     return list;
     }
+    public StudentDTO getById(Integer id){
+        Optional<StudentEntity> optional = studentRepository.findById(id);
+        if (optional.isEmpty()) {
+        return null;
+        }
+        StudentEntity entity = optional.get();
+        return toDTO(entity);
+    }
+    public StudentDTO toDTO(StudentEntity entity){
+        StudentDTO dto = new StudentDTO();
+        dto.setId(entity.getId());
+        dto.setName(entity.getName());
+        dto.setSurname(entity.getSurname());
+        return dto;
+    }
+
 }
