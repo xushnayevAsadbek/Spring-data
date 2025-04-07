@@ -12,4 +12,13 @@ Content-Type: application/json
 GET localhost:8080/student
 
 ### Student byId
-GET localhost:8080/student/7
+GET localhost:8080/student/3
+
+### Student update
+PUT localhost:8080/student/3
+Content-Type: application/json
+
+{
+  "name": "Qozi " ,
+  "surname": "Qoziyev"
+}

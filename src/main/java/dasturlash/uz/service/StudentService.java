@@ -40,6 +40,17 @@ public class StudentService {
         StudentEntity entity = optional.get();
         return toDTO(entity);
     }
+    public  StudentDTO update(Integer id ,StudentDTO dto){
+        Optional<StudentEntity> optional = studentRepository.findById(id);
+        if (optional.isEmpty()) {
+            return null;
+        }
+       StudentEntity entity = optional.get();
+        entity.setName(dto.getName());
+        entity.setSurname(dto.getSurname());
+        studentRepository.save(entity);
+       return dto;
+    }
     public StudentDTO toDTO(StudentEntity entity){
         StudentDTO dto = new StudentDTO();
         dto.setId(entity.getId());
