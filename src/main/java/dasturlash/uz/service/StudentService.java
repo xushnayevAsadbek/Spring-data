@@ -54,6 +54,25 @@ public class StudentService {
     public void delete(Integer id){
         studentRepository.deleteById(id);
     }
+    public List<StudentDTO> findByName(String name){
+        List<StudentEntity> itrabelList = studentRepository.findByName(name);
+        List<StudentDTO> list = new LinkedList<>();
+        for (StudentEntity entity : itrabelList) {
+
+            list.add(toDTO(entity));
+        }
+        return list;
+    }
+
+    public List<StudentDTO> getByNameAndSurname(String name, String surname){
+        List<StudentEntity> entityList = studentRepository.findByNameAndSurname(name, surname);
+        List<StudentDTO> list = new LinkedList<>();
+        for (StudentEntity entity : entityList) {
+
+            list.add(toDTO(entity));
+        }
+        return list;
+    }
     public StudentDTO toDTO(StudentEntity entity){
         StudentDTO dto = new StudentDTO();
         dto.setId(entity.getId());

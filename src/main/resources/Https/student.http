@@ -25,3 +25,6 @@ Content-Type: application/json
 
 ### Student delete
 DELETE localhost:8080/student/6
+
+### Student by name
+GET localhost:8080/student/by-name/alish

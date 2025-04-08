@@ -39,5 +39,10 @@ public class StudentController {
         studentService.delete(id);
         return ResponseEntity.ok().build();
     }
+    @GetMapping("/by-name/{name}")
+    private ResponseEntity<List<StudentDTO>> byName(@PathVariable("name") String name) {
+        return ResponseEntity.ok(studentService.findByName(name));
+    }
+
 
 }
