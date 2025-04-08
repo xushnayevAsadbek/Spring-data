@@ -22,3 +22,6 @@ Content-Type: application/json
   "name": "Qozi " ,
   "surname": "Qoziyev"
 }
+
+### Student delete
+DELETE localhost:8080/student/6

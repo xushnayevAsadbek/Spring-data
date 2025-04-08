@@ -51,6 +51,9 @@ public class StudentService {
         studentRepository.save(entity);
        return dto;
     }
+    public void delete(Integer id){
+        studentRepository.deleteById(id);
+    }
     public StudentDTO toDTO(StudentEntity entity){
         StudentDTO dto = new StudentDTO();
         dto.setId(entity.getId());

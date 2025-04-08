@@ -21,11 +21,11 @@ public class StudentController {
         return ResponseEntity.ok(result);
     }
     @GetMapping("")
-    public ResponseEntity<List<StudentDTO>> getAll() {
+    private ResponseEntity<List<StudentDTO>> getAll() {
         return ResponseEntity.ok(studentService.getAll());
     }
     @GetMapping("/{id}")
-    public ResponseEntity<StudentDTO> byId(@PathVariable("id") Integer id) {
+    private ResponseEntity<StudentDTO> byId(@PathVariable("id") Integer id) {
         return ResponseEntity.ok(studentService.getById(id));
     }
     @PutMapping("/{id}")
@@ -33,6 +33,11 @@ public class StudentController {
             ,@RequestBody StudentDTO dto) {
         StudentDTO result = studentService.update(id ,dto);
         return ResponseEntity.ok(result);
+    }
+    @DeleteMapping("/{id}")
+    private ResponseEntity<StudentDTO> delete(@PathVariable("id") Integer id) {
+        studentService.delete(id);
+        return ResponseEntity.ok().build();
     }
 
 }
